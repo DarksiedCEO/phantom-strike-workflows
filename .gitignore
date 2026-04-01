@@ -1,5 +1,6 @@
 .idea/
 .venv/
+.venv311/
 __pycache__/
 .pytest_cache/
 .mypy_cache/
