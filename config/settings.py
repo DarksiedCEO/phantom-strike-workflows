@@ -22,6 +22,7 @@ class Settings(BaseSettings):
     )
     contracts_commit: str = Field(default="3110d87", alias="CONTRACTS_COMMIT")
     log_level: str = Field(default="INFO", alias="LOG_LEVEL")
+    smoke_timeout_seconds: int = Field(default=60, alias="SMOKE_TIMEOUT_SECONDS")
 
 
 @lru_cache(maxsize=1)

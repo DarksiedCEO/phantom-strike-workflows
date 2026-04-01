@@ -1,0 +1,50 @@
+{
+  "signal": {
+    "signal_id": "df1eab71-aa5f-4ce2-9915-64ccf314e3b9",
+    "title": "Smoke harness signal",
+    "summary": "Deterministic workflows-to-core seam validation payload.",
+    "category": "campaign",
+    "status": "triaged",
+    "severity": "high",
+    "observed_at": "2026-04-01T07:20:00Z",
+    "created_at": "2026-04-01T07:20:00Z",
+    "updated_at": "2026-04-01T07:20:00Z",
+    "tags": [
+      "smoke",
+      "seam-validation"
+    ],
+    "scores": [
+      {
+        "score": 0.62,
+        "confidence_band": "guarded",
+        "rationale": "Deterministic smoke baseline score.",
+        "generated_at": "2026-04-01T07:20:00Z"
+      }
+    ],
+    "related_source_ids": [
+      "source-smoke-001"
+    ],
+    "audit": {
+      "schema": {
+        "contractVersion": "v1",
+        "schemaName": "signal",
+        "schemaRevision": 0,
+        "packageVersion": "0.1.0"
+      },
+      "trace": {
+        "request_id": "00000000-0000-0000-0000-000000000000",
+        "trace_id": "trace-smoke-template",
+        "correlation_id": "00000000-0000-0000-0000-000000000001",
+        "actor_service": "workflows",
+        "environment": "local"
+      },
+      "recorded_at": "2026-04-01T07:20:00Z",
+      "tags": [
+        "smoke-harness"
+      ]
+    }
+  },
+  "baseline_confidence": 0.62,
+  "trace_id": "trace-smoke-template",
+  "correlation_id": "00000000-0000-0000-0000-000000000001"
+}
