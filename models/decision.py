@@ -37,6 +37,34 @@ class SignalDecision(BaseModel):
     correlation_id: str
 
 
+class CoreSignalDecisionPayload(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    signal_id: str
+    baseline_confidence: float
+    confidence_delta: float
+    updated_confidence: float
+    confidence_band: ConfidenceBand
+    disposition: ValidationDisposition
+    reasoning: str
+    trace_id: str
+    correlation_id: str
+
+    @classmethod
+    def from_signal_decision(cls, decision: SignalDecision) -> "CoreSignalDecisionPayload":
+        return cls(
+            signal_id=decision.signal.signal_id,
+            baseline_confidence=decision.baseline_confidence,
+            confidence_delta=decision.confidence_delta,
+            updated_confidence=decision.updated_confidence,
+            confidence_band=decision.confidence_band,
+            disposition=decision.disposition,
+            reasoning=decision.reasoning,
+            trace_id=decision.trace_id,
+            correlation_id=decision.correlation_id,
+        )
+
+
 class DecisionSubmissionResult(BaseModel):
     model_config = ConfigDict(extra="forbid")
 

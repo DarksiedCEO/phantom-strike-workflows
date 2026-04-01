@@ -74,7 +74,7 @@ class ContractTrace(BaseModel):
 class ContractAudit(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
-    schema_: ContractSchemaDescriptor = Field(alias="schema")
+    schema: ContractSchemaDescriptor
     trace: ContractTrace
     recorded_at: datetime
     tags: list[str] = Field(default_factory=list)
