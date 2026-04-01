@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from functools import lru_cache
+
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -13,10 +15,15 @@ class Settings(BaseSettings):
         default="phantom-strike-signal-validation",
         alias="TEMPORAL_TASK_QUEUE",
     )
-    core_base_url: str = Field(default="http://127.0.0.1:3000", alias="CORE_BASE_URL")
+    core_base_url: str = Field(..., alias="CORE_BASE_URL")
     contracts_schema_dir: str = Field(
         default="/Users/andrelove/IdeaProjects/phantom-strike-contracts/schemas/v1",
         alias="CONTRACTS_SCHEMA_DIR",
     )
     contracts_commit: str = Field(default="3110d87", alias="CONTRACTS_COMMIT")
     log_level: str = Field(default="INFO", alias="LOG_LEVEL")
+
+
+@lru_cache(maxsize=1)
+def get_settings() -> Settings:
+    return Settings()

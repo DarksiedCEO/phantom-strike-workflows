@@ -168,7 +168,7 @@ def test_submit_signal_decision_activity_builds_flat_payload(monkeypatch: pytest
             captured["correlation_id"] = correlation_id
             return {"success": True}
 
-    monkeypatch.setattr("activities.core_updates.Settings", FakeSettings)
+    monkeypatch.setattr("activities.core_updates.get_settings", lambda: FakeSettings())
     monkeypatch.setattr("activities.core_updates.CoreClient", FakeCoreClient)
 
     result = asyncio.run(submit_signal_decision_activity(decision))

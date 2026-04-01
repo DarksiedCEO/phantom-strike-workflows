@@ -5,7 +5,7 @@ import logging
 from temporalio import activity
 
 from clients.core_client import CoreClient
-from config.settings import Settings
+from config.settings import get_settings
 from models.decision import (
     CoreSignalDecisionPayload,
     DecisionSubmissionResult,
@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 @activity.defn
 async def submit_signal_decision_activity(decision: SignalDecision) -> DecisionSubmissionResult:
-    settings = Settings()
+    settings = get_settings()
     client = CoreClient(settings.core_base_url)
     payload = CoreSignalDecisionPayload.from_signal_decision(decision).model_dump(mode="json")
 
