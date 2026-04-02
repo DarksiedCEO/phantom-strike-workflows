@@ -41,14 +41,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: DarksiedCEO/phantom-strike-core
-          ref: de47559
+          ref: de475590838f7931bcd1fbabafdac04f6ad17736
           path: phantom-strike-core
 
       - name: Check out pinned contracts
         uses: actions/checkout@v4
         with:
           repository: DarksiedCEO/phantom-strike-contracts
-          ref: 3110d87
+          ref: 3110d871d57e0d39b476285de9910264c2e8e77a
           path: phantom-strike-contracts
 
       - name: Set up Python
