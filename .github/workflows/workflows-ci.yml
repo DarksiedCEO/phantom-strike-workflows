@@ -87,12 +87,16 @@ jobs:
           echo "SMOKE FAIL: Temporal never bound to 127.0.0.1:7233"
           exit 1
 
+      - name: Build pinned core
+        working-directory: ./phantom-strike-core
+        run: cargo build
+
       - name: Start pinned core
         working-directory: ./phantom-strike-core
         env:
           PORT: "3100"
           CONTRACTS_SCHEMA_DIR: ${{ github.workspace }}/phantom-strike-contracts/schemas/v1
-        run: cargo run > ../core.log 2>&1 &
+        run: ./target/debug/phantom-strike-core > ../core.log 2>&1 &
 
       - name: Wait for core readiness
         shell: bash
