@@ -116,7 +116,7 @@ jobs:
         run: cp .env.example .env
 
       - name: Start workflows worker
-        run: python run_worker.py > worker.log 2>&1 &
+        run: python -u run_worker.py > worker.log 2>&1 &
 
       - name: Wait for worker startup
         shell: bash
@@ -126,7 +126,7 @@ jobs:
               exit 0
             fi
 
-            if ! pgrep -f "python run_worker.py" > /dev/null; then
+            if ! pgrep -f "run_worker.py" > /dev/null; then
               echo "SMOKE FAIL: workflows worker exited before startup completed"
               exit 1
             fi
