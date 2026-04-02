@@ -109,3 +109,4 @@ cd /Users/andrelove/PycharmProjects/phantom-strike-workflows
 
 ## Overall pass
 Local validation passes only if both smoke scripts pass against the live local stack after core, Temporal, and the workflows worker are started from canonical config.
+GitHub Actions should be treated as the required enforcement path for this same lane on `main`.
